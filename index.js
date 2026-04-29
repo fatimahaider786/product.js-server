@@ -1,27 +1,39 @@
-import express from "express";
-import cors from "cors";
+import express from 'express';
+import cors from 'cors';
 
 const app = express();
-app.use(cors());
+
+// Middlewares
+app.use(cors()); // Isse frontend ko permission milti hai data lene ki
 app.use(express.json());
 
-app.get("/products", (req, res) => {
-    const Cards = [
-        {
-            id: 1,
-            title: "ladies watch",
-            description: "branded luxury wrist watch",
-            imageURL: "https://tse2.mm.bing.net/th/id/OIP.72uQvQ4uVcqYzUPGWMlwQwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
-        },
-        {
-            id: 2,
-            title: "cars",
-            description: "the most reliable car in Africa",
-            imageURL: "https://www.cittoncars.co.za/wp-content/uploads/2024/01/Citton_most-reliable-used-cars-in-the-SA-market.jpg",
-        },
-    ];
-    res.send(Cards);
+const products = [
+    {
+        id: 1,
+        title: "Ladies Watch",
+        description: "Branded luxury wrist watch",
+        price: "150", // Maine price add kar di hai
+        imageURL: "https://tse2.mm.bing.net/th/id/OIP.72uQvQ4uVcqYzUPGMIwQwHaHa?rs=1&pid=ImgDetMain"
+    },
+    {
+        id: 2,
+        title: "Cars",
+        description: "The most reliable car in Africa",
+        price: "25000",
+        imageURL: "https://www.cittoncars.co.za/wp-content/uploads/2024/01/Citton_most-reliable-used-cars.jpg"
+    }
+];
+
+// Default Route (Check karne ke liye ke server chal raha hai)
+app.get("/", (req, res) => {
+    res.send("Backend is working! Go to /products to see data.");
 });
+
+// Products Route
+app.get("/products", (req, res) => {
+    res.json(products);
+});
+
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
     console.log(`Server is live on port ${PORT}`);
