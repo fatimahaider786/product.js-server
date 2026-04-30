@@ -12,24 +12,20 @@ const products = [
         id: 1,
         title: "Ladies Watch",
         description: "Branded luxury wrist watch",
-        price: "150", // Maine price add kar di hai
-        imageURL: "https://tse2.mm.bing.net/th/id/OIP.72uQvQ4uVcqYzUPGMIwQwHaHa?rs=1&pid=ImgDetMain"
+        price: "850",
+        imageURL: "https://tse1.explicit.bing.net/th/id/OIP.1fTnRuPqAFztVYzUAu5IJQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" 
     },
     {
         id: 2,
         title: "Cars",
         description: "The most reliable car in Africa",
-        price: "25000",
-        imageURL: "https://www.cittoncars.co.za/wp-content/uploads/2024/01/Citton_most-reliable-used-cars.jpg"
+        price: "25000000",
+        imageURL: "https://tse3.mm.bing.net/th/id/OIP.3foQ1VwX7DFUG0bJWSVZYwHaHa?w=626&h=626&rs=1&pid=ImgDetMain&o=7&rm=3" 
     }
 ];
-
-// Default Route (Check karne ke liye ke server chal raha hai)
 app.get("/", (req, res) => {
     res.send("Backend is working! Go to /products to see data.");
 });
-
-// Products Route
 app.get("/products", (req, res) => {
     res.json(products);
 });
