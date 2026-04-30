@@ -3,7 +3,7 @@ import cors from 'cors';
 
 const app = express();
 
-app.use(cors());
+app.use(cors()); 
 app.use(express.json());
 
 const products = [
@@ -29,6 +29,7 @@ app.get("/products", (req, res) => {
     res.json(products);
 });
 
-app.listen(5050, () => {
-  console.log("Server running on 5050");
+const PORT = process.env.PORT || 5050;
+app.listen(PORT, () => {
+    console.log(`Server is live on port ${PORT}`);
 });
