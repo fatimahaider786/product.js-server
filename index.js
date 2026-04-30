@@ -3,8 +3,7 @@ import cors from 'cors';
 
 const app = express();
 
-// Middlewares
-app.use(cors()); // Isse frontend ko permission milti hai data lene ki
+app.use(cors());
 app.use(express.json());
 
 const products = [
@@ -30,7 +29,6 @@ app.get("/products", (req, res) => {
     res.json(products);
 });
 
-const PORT = process.env.PORT || 5050;
-app.listen(PORT, () => {
-    console.log(`Server is live on port ${PORT}`);
+app.listen(5050, () => {
+  console.log("Server running on 5050");
 });
